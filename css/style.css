@@ -1,0 +1,108 @@
+:root {
+  --transition-duration: 0.5s;
+  --custom-red: #eb1d36;
+  --custom-green: #9eb23b;
+}
+
+main {
+  background-color: #f7ecde;
+}
+
+h1 {
+  position: relative;
+  font-family: "Pacifico", cursive;
+  z-index: 1;
+}
+
+h1::before {
+  content: "";
+  position: absolute;
+  height: 30%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #0d6efd;
+  transition: var(--transition-duration);
+  z-index: -1;
+}
+
+h1:hover::before {
+  height: 70%;
+}
+
+h3 {
+  font-family: "Righteous", sans-serif;
+}
+
+.btn-visit {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--custom-green);
+  --bs-btn-border-color: var(--custom-green);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #8a9e23;
+  --bs-btn-hover-border-color: #6e8018;
+}
+
+.btn-delete {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--custom-red);
+  --bs-btn-border-color: var(--custom-red);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #d30820;
+  --bs-btn-hover-border-color: #ba081d;
+}
+
+.iconSize {
+  width: 20px;
+  height: 20px;
+}
+
+.iconRed {
+  color: var(--custom-red);
+  border-color: var(--custom-red) !important;
+}
+
+.iconGreen {
+  color: var(--custom-green);
+  border-color: var(--custom-green) !important;
+}
+
+.regexMatch {
+  border-color: var(--custom-green);
+}
+
+.regexMatch:focus {
+  border-color: var(--custom-green);
+  box-shadow: 0 0 0 0.25rem hsla(70, 50%, 46%, 0.3);
+}
+
+.regexMatch + div{
+  display: block !important;
+  color: var(--custom-green);
+  border-color: var(--custom-green) !important;
+}
+
+.regexNotMatch {
+  border-color: var(--custom-red);
+}
+
+.regexNotMatch:focus {
+  border-color: var(--custom-red);
+  box-shadow: 0 0 0 0.25rem hsla(353, 84%, 52%, 0.3);
+}
+
+.regexNotMatch + div {
+  display: block !important;
+  color: var(--custom-red);
+  border-color: var(--custom-red) !important;
+}
+
+input.regexMatch + div i.fa-check,
+input.regexNotMatch + div i.fa-exclamation {
+  display: block;
+}
+
+input.regexNotMatch + div i.fa-check,
+input.regexMatch + div i.fa-exclamation {
+  display: none;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 9</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script
+      src="https://kit.fontawesome.com/7e30ccbca3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body id="body">
+    <main class="min-vh-100 text-center">
+      <div class="container d-flex flex-column align-items-center">
+        <h1 class="my-5">Bookmarker</h1>
+        <hr class="w-100" />
+        <h3 class="mb-5">Bookmark your favorite sites</h3>
+        <label class="align-self-start" for="bookmarkNameInput">
+          <i class="fa-solid fa-book-bookmark fa-fw"></i>
+          Site Name
+        </label>
+        <div class="w-100 position-relative my-3">
+          <input
+            class="form-control"
+            type="text"
+            id="bookmarkNameInput"
+            placeholder="Bookmark Name"
+            onkeyup="checkInputValidity(bookmarkNameInput, nameRegex)"
+          />
+          <div class="iconSize d-none border border-2 rounded-circle position-absolute top-50 translate-middle end-0">
+            <i class="fa-solid fa-exclamation"></i>
+            <i class="fa-solid fa-check"></i>
+          </div>
+        </div>
+        <label class="align-self-start" for="bookmarkSiteInput">
+          <i class="fa-solid fa-link fa-fw"></i>
+          Site URL
+        </label>
+        <div class="w-100 position-relative my-3">
+          <input
+            class="form-control"
+            type="url"
+            id="bookmarkSiteInput"
+            placeholder="Website URL"
+            onkeyup="checkInputValidity(bookmarkSiteInput, siteRegex)"
+          />
+          <div class="iconSize d-none border border-2 rounded-circle position-absolute top-50 translate-middle-y end-0 me-2">
+            <i class="fa-solid fa-exclamation icon-hide"></i>
+            <i class="fa-solid fa-check"></i>
+          </div>
+        </div>
+        <button
+          onclick="submitBookmark()"
+          class="btn btn-primary py-2 px-5"
+        >
+          Submit
+        </button>
+        <hr class="w-100" />
+        <table class="table mt-4 text-center bg-light">
+          <thead>
+            <tr>
+              <th class="text-capitalize">index</th>
+              <th class="text-capitalize">Website Name</th>
+              <th class="text-capitalize">Visit</th>
+              <th class="text-capitalize">Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tableContent"></tbody>
+        </table>
+      </div>
+
+      <div class="modal text-start" id="regexModalWarning" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Invalid Data!</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h6>
+                Site Name or Url is not valid, Please follow the rules below :
+              </h6>
+              <div class="d-flex align-items-center my-2">
+                <div class="d-flex justify-content-center align-items-center iconSize iconRed border border-2 rounded-circle me-2">
+                  <i
+                    class="fa-solid fa-arrow-right"
+                  ></i>
+                </div>
+                <p class="mb-0">Site name must contain at least 3 characters</p>
+              </div>
+              <div class="d-flex align-items-center my-2">
+                <div class="d-flex justify-content-center align-items-center iconSize iconRed border border-2 rounded-circle me-2">
+                  <i
+                    class="fa-solid fa-arrow-right"
+                  ></i>
+                </div>
+                <p class="mb-0">Site URL must be a valid one</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
