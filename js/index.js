@@ -92,7 +92,6 @@ function clearForm() {
   bookmarkSiteInput.value = "";
 
   [bookmarkNameInput, bookmarkSiteInput].forEach(element => {
-    console.log(element.name);
     element.classList.remove("regexMatch");
     element.classList.remove("regexNotMatch");
   });
@@ -113,8 +112,6 @@ function addRegexClassesToElement(htmlElement, isMatching) {
 }
 
 function checkInputValidity(element, regex) {
-  console.log(element.value); 
   var isRegexValid = checkRegex(element.value, regex);
-  console.log(isRegexValid);
   addRegexClassesToElement(element, isRegexValid);
 }
